@@ -16,40 +16,46 @@
 //What if the user enters something other than rock, paper, or scissors into the prompt? Figure out how to handle that as well.??
 
 
+//set global variables
+// User and CPU selection value
 
-let SelectionCPU = Math.round(Math.random())
-let SelectionUser= prompt ("Enter Rock, Paper, Scisors")
+let selectionUser= prompt ("Enter Rock, Paper, Scissors").toLowerCase()
+let selectionCPUArray = ['rock', 'paper', 'scissors']; 
+let selectionCPU = selectionCPUArray[(Math.random() * selectionCPUArray.length) | 0]
+console.log(`CPU Selection was ${selectionCPU}`)
 
+switch (selectionUser){
+    case 'rock': console.log("User selected rock")
+        break
+    case 'paper':console.log("User selected paper")
+        break
+    case 'scissors': console.log("User selected scissors")
+        break
+    default:
+        selectionUser= "error"
+        console.log(" **Error** Only enter Rock, paper, scissors")
+}
+// Nested Conditional Statements & Functions
+function gamePlay(cpu,user) {
+        if ( cpu === user){
+                console.log ("Tie, try again again")
+                } else if (user === "error"){
+                    console.log ("**Error** Only enter Rock, paper, scissors")
+                    } else if( cpu === "paper" &&  user === "scissors") { gameresults = "CPU Wins"
+                    } else if( cpu === "paper" &&  user === "rock") { gameresults = "User Wins"
+                    } else if( cpu === "rock" &&  user === "scissors") { gameresults = "CPU Wins"
+                    } else if( cpu === "rock" &&  user === "paper") { gameresults = "User Wins"
+                    } else if( cpu === "scissors" &&  user === "paper") { gameresults = "CPU Wins"
+                    } else if( cpu === "scissors" &&  user === "rock") { gameresults = "User Wins"
+                }
+    }
 
-
-
-// Create variables
-let coinFlip = Math.round(Math.random())
-let choice= prompt("Select Heads or Tails").toLowerCase()
-console.log(coinFlip)
-console.log(choice)
-
-// Nested Conditional Statements
-// Added a validation in case they enter something different to Heads or Tails
-if ( choice == "heads" || choice == "tails") {
-    if (coinFlip >= 1) { 
-        if ( choice == "heads") {document.write(`The flip was heads and you chose heads...you win`)
-            } else {document.write(`The flip was heads and you chose tails...you lose`)
-        } 
-    }else {
-        if ( choice == "heads") {document.write(`The flip was tails and you chose heads...you lose`)
-            } else {document.write(`The flip was tails and you chose tails...you win`)
-            }
-        }
-    }   
-else {document.write("Try again, only enter Heads or Tails, other values will show this error")}
-
-let coinFlip
-let amountTimes = parseInt(prompt('Enter Number amount of times for the loop'))
-for (let i = 1; i <= amountTimes; i++) {
-    console.log(`Loop Execution # ${i}`)
-    coinFlip= parseInt(Math.round(Math.random()))
-    console.log(`Coin Value ${coinFlip}`)
-    if (coinFlip >= 1) { 
-        console.log(`Tails`)
-        } else console.log(`Heads`)
+function main() {
+    let playAgain = 'y';
+    while (playAgain === 'y') {
+        gamePlay(selectionCPU,selectionUser);
+        playAgain = prompt('Do you want to play again? (y or n)');
+    }
+    alert('Thanks for playing the game!');
+}
+main();
