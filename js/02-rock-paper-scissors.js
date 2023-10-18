@@ -16,46 +16,33 @@
 //What if the user enters something other than rock, paper, or scissors into the prompt? Figure out how to handle that as well.??
 
 
-//set global variables
+//set variables
 // User and CPU selection value
+// Nested Conditional Statements & Functions
 
 let selectionUser= prompt ("Enter Rock, Paper, Scissors").toLowerCase()
 let selectionCPUArray = ['rock', 'paper', 'scissors']; 
 let selectionCPU = selectionCPUArray[(Math.random() * selectionCPUArray.length) | 0]
-console.log(`CPU Selection was ${selectionCPU}`)
-
+console.log(`CPU selection was ${selectionCPU}`)
 switch (selectionUser){
-    case 'rock': console.log("User selected rock")
+    case 'rock': console.log("User selection was rock")
         break
-    case 'paper':console.log("User selected paper")
+    case 'paper':console.log("User selection was paper")
         break
-    case 'scissors': console.log("User selected scissors")
+    case 'scissors': console.log("User selection was scissors")
         break
     default:
         selectionUser= "error"
-        console.log(" **Error** Only enter Rock, paper, scissors")
 }
-// Nested Conditional Statements & Functions
-function gamePlay(cpu,user) {
-        if ( cpu === user){
-                console.log ("Tie, try again again")
-                } else if (user === "error"){
-                    console.log ("**Error** Only enter Rock, paper, scissors")
-                    } else if( cpu === "paper" &&  user === "scissors") { gameresults = "CPU Wins"
-                    } else if( cpu === "paper" &&  user === "rock") { gameresults = "User Wins"
-                    } else if( cpu === "rock" &&  user === "scissors") { gameresults = "CPU Wins"
-                    } else if( cpu === "rock" &&  user === "paper") { gameresults = "User Wins"
-                    } else if( cpu === "scissors" &&  user === "paper") { gameresults = "CPU Wins"
-                    } else if( cpu === "scissors" &&  user === "rock") { gameresults = "User Wins"
-                }
-    }
 
-function main() {
-    let playAgain = 'y';
-    while (playAgain === 'y') {
-        gamePlay(selectionCPU,selectionUser);
-        playAgain = prompt('Do you want to play again? (y or n)');
+if ( selectionCPU === selectionUser){
+    console.log ("Tie, try again again")
+    } else if (selectionUser === "error"){
+        console.log ("**Error** Only enter Rock, paper, scissors")
+        } else if( selectionCPU === "paper" &&  selectionUser === "scissors") { console.log("User Wins")
+        } else if( selectionCPU === "paper" &&  selectionUser === "rock") { console.log("CPU Wins")
+        } else if( selectionCPU === "rock" &&  selectionUser=== "scissors") { console.log("CPU Wins")
+        } else if( selectionCPU === "rock" &&  selectionUser === "paper") { console.log("User Wins")
+        } else if( selectionCPU === "scissors" &&  selectionUser === "paper") { console.log("CPU Wins")
+        } else if( selectionCPU === "scissors" &&  selectionUser === "rock") { console.log("User Wins")
     }
-    alert('Thanks for playing the game!');
-}
-main();
