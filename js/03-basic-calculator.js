@@ -49,7 +49,7 @@ switch (calcValue){
 if (valError === "error"){
 }
 else { alert (`The results is ${result}`)}
-return {valError,result}
+return [valError,result]
 }
 
 // CALL THE FUNCTION AND RETURN THE RESULT WITHIN AN ALERT
